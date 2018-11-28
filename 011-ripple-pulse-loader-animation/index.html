@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>011-ripple-pulse-loader-animation</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body,
+        .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+        :root {
+            --innerRadius: 2em;
+        }
+        .circle {
+            position: relative;
+            width: calc(var(--innerRadius) * 2);
+            height: calc(var(--innerRadius) * 2);
+            background: lime;
+            border-radius: 50%;
+            box-shadow: 0 0 0 calc(var(--innerRadius) - .4em) black,
+                        0 0 0 var(--innerRadius) lime;
+        }
+        .circle::before,
+        .circle::after {
+            position: absolute;
+            content: '';
+            width: calc(var(--innerRadius) * 4);
+            height: calc(var(--innerRadius) * 4);
+            border: 2px solid lime;
+            border-radius: 50%;
+            animation: pulse 2s linear infinite;
+        }
+        .circle::after {
+            animation-delay: 1s;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+                opacity: .9;
+            }
+            to   {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014700727 -->
+</body>
+</html>
