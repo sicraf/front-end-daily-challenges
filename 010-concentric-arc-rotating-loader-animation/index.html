@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>010-concentric-arc-rotating-loader-animation</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body,
+        .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+        .circle,
+        .circle::after,
+        .circle::before {
+            border: .4em solid;
+            border-radius: 50%;
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+        .circle {
+            position: relative;
+            width: 10em;
+            height: 10em;
+            border-top-color: red;
+            border-bottom-color: blue;
+        }
+        .circle::after,
+        .circle::before {
+            content: '';
+            position: absolute;
+        }
+        .circle::before {
+            width: 75%;
+            height: 75%;
+            border-top-color: orange;
+            border-bottom-color: cyan;
+        }
+        .circle::after {
+            width: 50%;
+            height: 50%;
+            border-top-color: yellow;
+            border-bottom-color: limegreen;
+        }
+
+        .circle {
+            animation: animate 4s ease-in-out infinite alternate;
+        }
+        .circle::before {
+            animation: animate 8s ease-in-out infinite alternate;
+        }
+        .circle::after {
+            animation: animate 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes animate {
+            from  { transform: rotate(0); }
+            to    { transform: rotate(1440deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014682999 -->
+</body>
+</html>
