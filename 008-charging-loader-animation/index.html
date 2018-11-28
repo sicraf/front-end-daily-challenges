@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>008-charging-loader-animation</title>
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: pink;
+        }
+        .battery {
+            position: relative;
+            width: 6em;
+            height: 3em;
+            color: whitesmoke;
+            border: .5em solid currentColor;
+            border-radius: .2em;
+            font-size: 2em;
+            background: linear-gradient(to right, lime, lime);
+            background-repeat: no-repeat;
+            background-size: 30% 80%;
+            background-position: .3em .3em;
+            animation: charging 5s steps(8) infinite;
+        }
+        .battery::after {
+            position: absolute;
+            top: .5em;
+            right: -1em;
+            content: '';
+            width: .5em;
+            height: 2em;
+            background: currentColor;
+        }
+
+        @keyframes charging {
+            from  { background-size: 10% 80%; }
+            to    { background-size: 95% 80%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="battery"></div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014669547#articleHeader1 -->
+    <!-- 重点：steps函数 阶跃函数 -->
+</body>
+</html>
