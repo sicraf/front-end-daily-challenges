@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>007-3d-text-marquee-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: navajowhite;
+        }
+        .box {
+            display: flex;
+        }
+        .box .inner {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 4em;
+            font-family: sans-serif;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .box .inner:first-child {
+            background: indianred;
+            color: darkred;
+            transform: perspective(100px) rotateY(-15deg);
+            transform-origin: right;
+        }
+        .box .inner:last-child {
+            background: lightcoral;
+            color: antiquewhite;
+            transform: perspective(100px) rotateY(15deg);
+            transform-origin: left;
+        }
+        .box .inner span {
+            position: absolute;
+            animation: marqueen 5s linear infinite;
+        }    
+
+        .box .inner:first-child span {
+            animation-delay: 2.5s;
+            left: -100%;
+        }
+
+        @keyframes marqueen {
+            from { left: 100%;  }
+            to   { left: -100%; }
+        }   
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner">
+            <span>Hello World</span>
+        </div>
+        <div class="inner">
+            <span>Hello World</span>
+        </div>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014663038 -->
+    <!-- 知识点：css 3d变换以及动画的结合 -->
+</body>
+</html>
