@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>009-aimed-button-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            color: silver;
+        }
+        .box {
+            position: relative;
+            width: 9em;
+            height: 3em;
+            font-size: 30px;
+            text-align: center;
+            line-height: 3em;
+            letter-spacing: .1em;
+            font-family: sans-serif;
+            filter: blur(2px);
+        }
+        .box::after {
+            position: absolute;
+            left: 3em;
+            content: '';
+            box-sizing: border-box;
+            width: 3em;
+            height: 3em;
+            border: 1px solid red;
+            border-radius: 50%;
+            opacity: 0;
+        }
+        .box span:not(:first-child) {
+            position: absolute;
+            background: red;
+            opacity: 0;
+        }
+        .box span.top,
+        .box span.bottom {
+            width: 1px;
+            height: 3em;
+            left: 50%;
+        }
+        .box span.top {
+            top: -3em;
+        }
+        .box span.bottom {
+            bottom: -3em;
+        }
+        .box span.left,
+        .box span.right {
+            width: 3em;
+            height: 1px;
+            top: 50%;
+        }
+        .box span.left {
+            left: 0;
+        }
+        .box span.right {
+            right: 0;
+        }
+
+        .box:hover {
+            filter: blur(.2px);
+        }
+        .box:hover::after,
+        .box:hover span:not(:first-child) {
+            animation: aim 1s linear infinite alternate;
+        }
+
+        @keyframes aim {
+            from  { opacity: .2; }
+            to    { opacity: .8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>SHOT ME!</span>
+        <span class="top"></span>
+        <span class="right"></span>
+        <span class="bottom"></span>
+        <span class="left"></span>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014680999 -->
+    <!-- 知识点：css filter的使用 模糊效果 -->
+</body>
+</html>
