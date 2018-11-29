@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>012-broken-text-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(brown, sandybrown)
+        }
+        .text {
+            position: relative;
+            font-size: 5em;
+            font-family: "arial black";
+            color: transparent;
+            user-select: none;
+        }
+        .text::before,
+        .text::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: attr(data-text);
+            color: lightyellow;
+            transition: .2s;
+        }
+        .text::before {
+            /* background: darkgreen; */
+            clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
+        }
+        .text::after {
+            /* background: darkred; */
+            clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+        }
+        .text:hover::before {
+            /* top: -.05em; */
+            left: -.15em;
+            transform: rotate(-5deg);
+        }
+        .text:hover::after {
+            top: .03em;
+            left: .15em;
+            transform: rotate(5deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="text" data-text="MARVEL">MARVEL</div>
+</body>
+</html>
