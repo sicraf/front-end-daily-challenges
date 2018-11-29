@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>015-development-skills-card</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(dimgray, silver, silver, dimgray);
+        }
+        .card {
+            width: 400px;
+            box-sizing: border-box;
+            padding: 20px;
+            font-family: sans-serif;
+            color: white;
+            background: linear-gradient(#333, dimgray);
+            letter-spacing: .1em;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+        }
+        .card h2{
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .card .skill {
+            height: 50px;
+        }
+        .card .skill span {
+            display: block;
+        }
+        .card .skill .level {
+            position: relative;
+            transform: translateY(-1em);
+            text-align: right;
+        }
+        .card .skill .level::before,
+        .card .skill .level::after {
+            content: '';
+            position: absolute;
+            top: 1.2em;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .card .skill .level::before {
+            border: 1px solid mediumspringgreen;
+            border-radius: .2em;
+            height: 104%;
+        }
+        .card .skill .level::after {
+            background: linear-gradient(to right, mediumspringgreen, mediumspringgreen) no-repeat .1em .1em;
+        }
+
+        .card .skill.html .level::after {
+            background-size: 90% 100%;
+        }
+        .card .skill.css .level::after {
+            background-size: 95% 100%;
+        }
+        .card .skill.js .level::after {
+            background-size: 80% 100%;
+        }
+        .card .skill.svg .level::after {
+            background-size: 60% 100%;
+        }
+        .card .skill.canvas .level::after {
+            background-size: 75% 100%;
+        }
+
+        .card .skill:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Development Skills</h2>
+        <p class="skill html">
+            <span>HTML5</span>
+            <span class="level">90%</span>
+        </p>
+        <p class="skill css">
+            <span>CSS</span>
+            <span class="level">95%</span>
+        </p>
+        <p class="skill javascript">
+            <span>JavaScript</span>
+            <span class="level">80%</span>
+        </p>
+        <p class="skill svg">
+            <span>SVG</span>
+            <span class="level">60%</span>
+        </p>
+        <p class="skill canvas">
+            <span>Canvas</span>
+            <span class="level">75%</span>
+        </p>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014768534 -->
+</body>
+</html>
