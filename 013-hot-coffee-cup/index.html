@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>013-hot-coffee-cup</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: brown;
+        }
+        .coffee {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: calc(9em + 1em + 2em);
+        }
+        .coffee .cup {
+            position: relative;
+            width: 10em;
+            height: 9em;
+            background: white;
+            border-bottom-left-radius: 1.5em;
+            border-bottom-right-radius: 1.5em;
+        }
+        .coffee .cup::before {
+            position: absolute;
+            top: -1em;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2em;
+            background: chocolate;
+            box-shadow: 0 0 1em rgba(0, 0, 0, .5) inset;
+            border: .5em solid white;
+            box-sizing: border-box;
+            border-radius: 50%;
+        }
+        .coffee .cup::after {
+            position: absolute;
+            top: 20%;
+            left: 80%;
+            content: '';
+            width: 3em;
+            height: 3.5em;
+            border: .8em solid white;
+            border-radius: 50%;
+        }
+        .coffee .plate {
+            position: absolute;
+            bottom: -1px;
+            width: 16em;
+            height: 1em;
+            background: white;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+        .coffee .vapor {
+            width: 7em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .coffee .vapor span {
+            width: .1em;
+            min-width: 1px;
+            height: 2em;
+            background: white;
+            filter: opacity(0);
+            animation: evaporation 2s linear infinite;
+        }
+        .coffee .vapor span:nth-child(1) {
+            animation-delay: .2s
+        } 
+        .coffee .vapor span:nth-child(2) {
+            animation-delay: .4s
+        } 
+        .coffee .vapor span:nth-child(3) {
+            animation-delay: .6s
+        } 
+        .coffee .vapor span:nth-child(4) {
+            animation-delay: .2s
+        } 
+
+        @keyframes evaporation {
+            from {
+                transform: translateY(0);
+                filter: opacity(1) blur(.2em);
+            }
+            to   {
+                transform: translateY(-4em);
+                filter: opacity(0) blur(.4em);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="coffee">
+        <div class="vapor">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="cup"></div>
+        <div class="plate"></div>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014734039 -->
+</body>
+</html>
