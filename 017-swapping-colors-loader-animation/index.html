@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>017-swapping-colors-loader-animation</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body,
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: pink;
+        }
+        .loader {
+            position: relative;
+            width: 10em;
+            height: 10em;
+            font-size: 28px;
+        }
+        .loader span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(100%, 0%, 0%, .3);
+            box-sizing: border-box;
+            border: .5em solid;
+            border-color: white rgba(1, 1, 1, .2);
+            animation: animate 5s ease-in-out infinite alternate;
+        }
+        .loader span:nth-child(1) {
+            width: calc(20% * (5 - 0));
+            height: calc(20% * (5 - 0));
+            animation-delay: calc(.2s * (5 - 1));
+        }
+        .loader span:nth-child(2) {
+            width: calc(20% * (5 - 1));
+            height: calc(20% * (5 - 1));
+            animation-delay: calc(.2s * (5 - 2));
+        }
+        .loader span:nth-child(3) {
+            width: calc(20% * (5 - 2));
+            height: calc(20% * (5 - 2));
+            animation-delay: calc(.2s * (5 - 3));
+        }
+        .loader span:nth-child(4) {
+            width: calc(20% * (5 - 3));
+            height: calc(20% * (5 - 3));
+            animation-delay: calc(.2s * (5 - 4));
+        }
+        .loader span:nth-child(5) {
+            width: calc(20% * (5 - 4));
+            height: calc(20% * (5 - 4));
+            animation-delay: calc(.2s * (5 - 5));
+        }
+
+        @keyframes animate {
+            0%   { 
+                background: rgba(100%, 0%, 0%, .3);
+                transform: rotate(0deg);
+            }
+            25%  { background: rgba(100%, 100%, 0%, .3); }
+            50%  { background: rgba(0%, 100%, 0%, .3); }
+            75%  { background: rgba(0%, 0%, 100%, .3); }
+            100% { 
+                background: rgba(100%, 0%, 100%, .3); 
+                transform: rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014807564 -->
+</body>
+</html>
