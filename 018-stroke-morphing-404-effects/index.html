@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>018-stroke-morphing-404-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(gray, silver);
+        }
+        .four-zero-four p{
+            position: relative;
+            display: inline-block;
+            width: 10em;
+            height: 10em;
+            margin: 1em;
+            border: 1px dashed white;
+        }
+        .four-zero-four p span {
+            position: absolute;
+            box-sizing: border-box;
+            filter: opacity(.8);
+            transition: .3s;
+        }        
+        .four span:nth-child(1) {
+            width: 20%;
+            height: 80%;
+            left: 10%;
+            background: yellowgreen;
+        }
+        .four span:nth-child(2) {
+            width: 100%;
+            height: 20%;
+            bottom: 30%;
+            background: turquoise;
+        }
+        .four span:nth-child(3) {
+            width: 20%;
+            height: 100%;
+            right: 10%;
+            background: pink;
+        }
+        .zero span:nth-child(1),
+        .zero span:nth-child(3) {
+            width: 20%;
+            height: 100%;
+        }
+        .zero span:nth-child(2),
+        .zero span:nth-child(4){
+            width: 100%;
+            height: 20%;
+        }
+        .zero span:nth-child(1) {
+            left: 10%;
+            background: skyblue;
+        }
+        .zero span:nth-child(2) {
+            top: 10%;
+            background: plum;
+        }
+        .zero span:nth-child(3) {            
+            right: 10%;
+            background: lightcoral;
+        }
+        .zero span:nth-child(4) {
+            bottom: 10%;
+            background: peachpuff;
+        }
+        .four-zero-four p:hover span{
+            border: 1px solid black;
+            background: transparent;
+            filter: opacity(1);
+            transition: .3s;
+        }
+        .four:hover span:nth-child(1) {
+            left: 0;
+        }
+        .four:hover span:nth-child(2) {
+            bottom: 0;
+        }
+        .four:hover span:nth-child(3) {
+            right: 0;
+        }
+        .zero:hover span:nth-child(1) {
+            left: 0;
+        }
+        .zero:hover span:nth-child(2) {
+            top: 0;
+        }
+        .zero:hover span:nth-child(3) {
+            right: 0;
+        }
+        .zero:hover span:nth-child(4) {
+            bottom: 0;
+        }
+        .four-zero-four p:hover span {
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <section class="four-zero-four">
+        <p class="four">
+            <span></span>
+            <span></span>
+            <span></span>
+        </p>
+        <p class="zero">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </p>
+        <p class="four">
+            <span></span>
+            <span></span>
+            <span></span>
+        </p>
+    </section>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014818274 -->
+</body>
+</html>
