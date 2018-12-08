@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>019-split-text-menu-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .menu {
+            padding: 0;
+        }
+        .menu li {
+            position: relative;
+            list-style: none;
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1em;
+            width: 7em;
+            border-top: 1px solid transparent;
+            color: transparent;
+            margin: .5em;
+            transition: all .3s;
+        }
+        .menu li::before,
+        .menu li::after {
+            content: attr(data-text);
+            position: absolute;
+            top: -.5em;
+            left: 0;
+            width: 100%;
+            color: silver;
+            transition: left .3s ease-out;
+        }
+        .menu li::before {
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+        }
+        .menu li::after {
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        }
+        .menu li:hover {
+            border-top-color: yellow;
+        }
+        .menu li:hover::before,
+        .menu li:hover::after {
+            color: yellow;
+            transition-delay: .2s;
+        }
+        .menu li:nth-child(odd):hover::before,
+        .menu li:nth-child(even):hover::after {
+            left: -.15em;
+        }
+        .menu li:nth-child(odd):hover::after, 
+        .menu li:nth-child(even):hover::before {
+            left: .15em;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li data-text="New Game">New Game</li>
+        <li data-text="Load Game">Load Game</li>
+        <li data-text="Option">Option</li>
+        <li data-text="Exit">Exit</li>
+    </ul>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014836748 -->
+</body>
+</html>
