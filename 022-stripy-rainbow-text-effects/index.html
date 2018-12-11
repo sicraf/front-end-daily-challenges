@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>022-stripy-rainbow-text-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+        .rainbow {
+            position: relative;
+            color: transparent;
+            font-family: sans-serif;
+            font-size: 300px;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .rainbow span::before, 
+        .rainbow span::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            animation: animate .8s infinite alternate;
+        }
+        .rainbow span:nth-child(1)::before {
+            color: orchid;
+            z-index: 1;
+            height: calc(100% - 10% * 1);
+            animation-delay: calc(.8s - .1s * 1);
+        }
+        .rainbow span:nth-child(1)::after {
+            color: mediumpurple;
+            z-index: 2;
+            height: calc(100% - 10% * 2);
+            animation-delay: calc(.8s - .1s * 2);
+        }
+        .rainbow span:nth-child(2)::before {
+            color: deepskyblue;
+            z-index: 3;
+            height: calc(100% - 10% * 3);
+            animation-delay: calc(.8s - .1s * 3);
+        }
+        .rainbow span:nth-child(2)::after {
+            color: cyan;
+            z-index: 4;
+            height: calc(100% - 10% * 4);
+            animation-delay: calc(.8s - .1s * 4);
+        }
+        .rainbow span:nth-child(3)::before {
+            color: mediumspringgreen;
+            z-index: 5;
+            height: calc(100% - 10% * 5);
+            animation-delay: calc(.8s - .1s * 5);
+        }
+        .rainbow span:nth-child(3)::after {
+            color: yellow;
+            z-index: 6;
+            height: calc(100% - 10% * 6);
+            animation-delay: calc(.8s - .1s * 6);
+        }
+        .rainbow span:nth-child(4)::before {
+            color: gold;
+            z-index: 7;
+            height: calc(100% - 10% * 7);
+            animation-delay: calc(.8s - .1s * 7);
+        }
+        .rainbow span:nth-child(4)::after {
+            color: tomato;
+            z-index: 8;
+            height: calc(100% - 10% * 8);
+            animation-delay: calc(.8s - .1s * 8);
+        }
+
+        @keyframes animate {
+            from { filter: opacity(0); }
+            to   { filter: opacity(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="rainbow">
+        web
+        <span data-text="web"></span>
+        <span data-text="web"></span>
+        <span data-text="web"></span>
+        <span data-text="web"></span>
+    </div>
+    
+    <!-- 链接：https://segmentfault.com/a/1190000014858628 -->
+</body>
+</html>
