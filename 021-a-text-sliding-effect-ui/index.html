@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>021-a-text-sliding-effect-ui</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: darkcyan;
+        }
+        h1 {
+            position: relative;
+            font-family: sans-serif;
+            color: gold;
+            text-align: center;
+        }
+        h1::after {
+            position: absolute;
+            top: -.25em;
+            left: 0;
+            content: '?';
+            font-size: 25em;
+            line-height: 1;
+            color: cyan;
+            transform: rotate(15deg);
+            filter: opacity(.3);
+            text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+            z-index: -1;
+        }
+        p {
+            position: relative;
+            width: 400px;
+            height: 2.5em;
+            color: gold;
+            font-family: sans-serif;
+            font-size: 24px;
+            border: 2px solid gold;
+            line-height: 2.5em;
+            text-align: center;
+            border-radius: 10px;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+            overflow: hidden;
+        }
+        p span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: .5s ease-out;
+        }
+        p:hover .question {
+            left: 100%;
+        }
+        p .answer {
+            left: -100%;
+            color: whitesmoke;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, .1);
+        }
+        p:hover .answer {
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Who</h1>
+        <p>
+            <span class="question">Who you gonna call?</span>
+            <span class="answer">Ghostbusters!</span>
+        </p>
+        <p>
+            <span class="question">Who you gonna call?</span>
+            <span class="answer">Ghostbusters!</span>
+        </p>
+        <p>
+            <span class="question">Who you gonna call?</span>
+            <span class="answer">Ghostbusters!</span>
+        </p>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014842868 -->
+</body>
+</html>
