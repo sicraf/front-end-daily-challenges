@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>026-set-off-paper-button-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(cadetblue, darkcyan);
+        }
+        nav {
+            width: 300px;
+            height: 300px;
+            --bgColor: lemonchiffon;
+            background: var(--bgColor);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
+            border-radius: 10px;
+            padding: 30px 0;
+            box-sizing: border-box;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        nav ul li {
+            color: brown;
+            font-family: sans-serif;
+            font-size: 20px;
+            padding: .5em 1em;
+            border-radius: .5em;
+            transition: .5s ease-out;
+        }
+        nav ul li:hover {
+            box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
+                        0 6px 6px rgba(0, 0, 0, .1),
+                        0 8px 8px rgba(0, 0, 0, .1),
+                        0 12px 12px rgba(0, 0, 0, .1);
+            transform: scale(1.05) translateY(-.25em) perspective(300px) rotateX(20deg);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <!-- 链接：https://segmentfault.com/a/1190000014930183 -->
+</body>
+</html>
