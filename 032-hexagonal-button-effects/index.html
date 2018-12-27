@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>032-hexagonal-button-effects</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav {
+            --h: 3em;
+            margin: 0 var(--h);
+        }
+        nav:nth-child(1) {
+            --rate: 1.5;
+            --bgColor: black;
+        }
+        nav:nth-child(2) {
+            --rate: 1.732;
+            --bgColor: brown;
+        }
+        nav:nth-child(3) {
+            --rate: 2;
+            --bgColor: green;
+        }
+        nav ul {
+            padding: 0;
+        }
+        nav ul li {
+            position: relative;
+            list-style-type: none;
+            width: calc(var(--h) * var(--rate));
+            height: var(--h);
+            line-height: var(--h);
+            background: var(--bgColor);
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+            margin: var(--h) 0;
+        }
+        nav ul li::before,
+        nav ul li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: inherit;
+            height: inherit;
+            background: var(--bgColor);
+            filter: opacity(0);
+            transition: .3s;
+        }
+        nav ul li::before {
+            transform: translateY(calc(var(--h) * -2)) rotate(60deg);
+        }
+        nav ul li::after {
+            transform: translateY(calc(var(--h) * -2)) rotate(-60deg);
+            transition-delay: .1s;
+        }
+        nav ul li:hover::before {
+            filter: opacity(1);
+            transform: translateY(0) rotate(60deg);
+        }
+        nav ul li:hover::after {
+            filter: opacity(1);
+            transform: translateY(0) rotate(-60deg);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Product Vs</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <!-- 链接：https://segmentfault.com/a/1190000015020964 -->
+</body>
+</html>
