@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>033-milk-text-effect</title>
+    <style>
+        html, body {
+            height: 100vh;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+        .container {
+            filter: contrast(10);
+        }
+        p {
+            color: white;
+            font-size: 100px;
+            font-weight: bold;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0;
+            filter: opacity(0);
+            animation: show-hide 10s infinite;
+        }
+        p:nth-child(1) {
+            transform: translateY(50%);
+            animation-direction: normal;
+        }
+        p:nth-child(2) {
+            transform: translateY(-50%);
+            animation-direction: reverse;
+        }
+        @keyframes show-hide {
+            0%  { filter: opacity(0) blur(.08em); letter-spacing: -.8em; }
+            25% { filter: opacity(1) blur(.08em); }
+            40% { filter: opacity(1) blur(.24em); }
+            50% { filter: opacity(0) blur(.24em); letter-spacing: .24em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Explorer</p>
+        <p>Discovery</p>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000015037234 -->
+    <!-- 知识点：滤镜的运用 -->
+</body>
+</html>
