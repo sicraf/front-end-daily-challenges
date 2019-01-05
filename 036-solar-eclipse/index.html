@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>036-solar-eclipse</title>
+    <style>
+        html, body {
+            height: 100vh;
+            margin: 0;
+        }
+        .sky, .sun, .moon {
+            animation: 10s infinite linear;
+        }
+        .sky {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: skyblue;
+            overflow: hidden;
+            animation-name: animate-sky;
+        }
+        .sun,
+        .moon {
+            position: absolute;
+            width: 50vmin;
+            height: 50vmin;
+            border-radius: 50%;
+        }
+        .sun {
+            background: gold;
+            animation-name: animate-sun;
+        }
+        .moon {
+            background: slategray;
+            transform: translateX(-55vmin);
+            animation-name: animate-moon;
+        }
+
+        @keyframes animate-sky {
+            50% { background: black; }
+        }
+        @keyframes animate-sun {
+            50% { box-shadow: 0 0 5em 1em white; }
+        }
+        @keyframes animate-moon {
+            from { transform: translateX(-100vmin); }
+            50%  { background: black; }
+            to   { transform: translateX(100vmin); }
+        }
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="sun"></div>
+        <div class="moon"></div>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000015070543 -->
+</body>
+</html>
