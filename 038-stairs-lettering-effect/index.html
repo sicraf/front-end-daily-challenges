@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>038-stairs-lettering-effect</title>
+    <style>
+        html, body {
+            height: 100vh;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+        .container p {
+            position: relative;
+            left: -.8em;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 60px;
+            text-transform: uppercase;
+            color: white;
+            margin: 0;
+            height: 1em;
+            overflow: hidden;
+        }
+        .container p:nth-child(odd) {
+            transform: skewY(-30deg) skewX(45deg) scaleY(1.3333);
+        }
+        .container p:nth-child(even) {
+            transform: skewY(-30deg) scaleY(1.3333);
+        }
+        .container p:nth-child(2) {
+            margin-left: 1.3em;
+        }
+        .container p:nth-child(3) {
+            margin-left: 2.6em;
+        }
+        .container p span {
+            display: block;
+            text-align: center;
+            line-height: 1em;
+            animation: lettering 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes lettering {
+            to { transform: translateY(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>
+            <span>stay</span>
+            <span>hungry</span>
+        </p>
+        <p>
+            <span>hungry</span>
+            <span>stay</span>
+        </p>
+        <p>
+            <span>stay</span>
+            <span>foolish</span>
+        </p>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000015107942 -->
+</body>
+</html>
