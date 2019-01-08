@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>153-emoji-tooltips</title>
+    <style>
+        html, body {
+            height: 100vh;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: lightyellow;
+        }
+        .container {
+            position: relative;
+            width: 20em;
+            height: 20em;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .emoji {
+            position: relative;
+            width: 10em;
+            height: 10em;
+            background: pink;
+            box-sizing: border-box;
+            border-radius: 50% 50% 75% 50%;
+        }
+        .emoji .eye {
+            position: absolute;
+            top: 3em;
+            box-sizing: border-box;
+            width: 3em;
+            height: 3em;
+            border: .1em solid gray;
+            border-radius: 50%;
+            --top: 1em;
+            --left: calc((100% - 1em) / 2);
+        }
+        .emoji .eye.left {
+            left: 1em;
+        }
+        .emoji .eye.right {
+            right: 1em;
+        }
+        .emoji .eye.left::before,
+        .emoji .eye.right::before {
+            position: absolute;
+            top: var(--top);
+            left: var(--left);
+            content: '';
+            width: 1em;
+            height: 1em;
+            background: #222;
+            border-radius: 50%;
+            transition: .3s;
+        }
+        .emoji.top .eye {
+            --top: 0;
+        }
+        .emoji.right .eye {
+            --left: 1.8em;
+        }
+        .emoji.bottom .eye {
+            --top: 1.8em;
+        }
+        .emoji.left .eye {
+            --left: 0;
+        }
+        .emoji .mouth {
+            position: absolute;
+            bottom: 2em;
+            left: 40%;
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            border: .1em solid;
+            border-color: transparent gray gray transparent;
+            transform: rotate(20deg);
+        }
+        .tip {
+            position: absolute;
+            font-family: sans-serif;
+            font-size: 4.5em;
+            font-weight: 100;
+            color: silver;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .tip.top { top: -15%; }
+        .tip.right { right: -15%; }
+        .tip.bottom { bottom: -15%; }
+        .tip.left { left: -15%; }
+
+        .tip::before {
+            position: absolute;            
+            content: attr(data-tip);
+            font-family: sans-serif;
+            font-size: .3em;
+            width: 10em;
+            padding: .5em;
+            text-align: center;
+            color: white;
+            background: #222;
+            border-radius: .2em;
+            box-shadow: 0 .1em .3em rgba(0, 0, 0, .3);
+        }
+        .tip.top::before { top: 0; left: 50%; transform: translate(-50%, calc(-100% - .6em)); }
+        .tip.right::before { top: 50%; right: 0; transform: translate(calc(100% + .6em), -50%); }
+        .tip.bottom::before { bottom: 0; left: 50%; transform: translate(-50%, calc(100% + .6em)); }
+        .tip.left::before { top: 50%; left: 0; transform: translate(calc(-100% - .6em), -50%); }
+
+        .tip::after {
+            position: absolute;
+            content: '';
+            font-size: .3em;
+            width: 0;
+            height: 0;
+            color: #222;
+            border: .6em solid transparent;
+        }         
+        .tip.top::after {
+            border-top-color: currentColor;
+            top: 0; 
+            left: 50%; 
+            transform: translate(-50%, -.6em);
+        }
+        .tip.right::after {
+            border-right-color: currentColor;
+            top: 50%; 
+            right: 0; 
+            transform: translate(.6em, -50%);
+        }
+        .tip.bottom::after {
+            border-bottom-color: currentColor;
+            bottom: 0; 
+            left: 50%; 
+            transform: translate(-50%, .6em);
+        }
+        .tip.left::after {
+            border-left-color: currentColor;
+            top: 50%; 
+            left: 0; 
+            transform: translate(-50%, -.6em);
+        }
+        .tip::before,
+        .tip::after {
+            visibility: hidden;
+            filter: opacity(0);
+            transition: .3s;
+        }
+        .tip:hover::before,
+        .tip:hover::after {
+            visibility: visible;
+            filter: opacity(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="mouth"></span>
+        </div>
+
+        <span class="tip top" data-tip="look up">@</span>
+        <span class="tip right" data-tip="look down">@</span>
+        <span class="tip bottom" data-tip="look to the left">@</span>
+        <span class="tip left" data-tip="look to the right">@</span>
+    </div>
+
+    <script>
+        const DIRECTIONS = ['top', 'right', 'bottom', 'left'],
+              EVENTS = ['mouseover', 'mouseout'],
+              $ = (className) => document.getElementsByClassName(className)[0];
+
+        DIRECTIONS.forEach(direction => {
+            EVENTS.forEach(event => {
+                $(`tip ${direction}`).addEventListener(event, () => {
+                    $(`emoji`).classList.toggle(direction);
+                });
+            });
+        });
+    </script>
+
+    <!-- 链接：https://segmentfault.com/a/1190000016651727 -->
+</body>
+</html>
