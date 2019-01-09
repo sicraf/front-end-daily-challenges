@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>041-pencil</title>
+    <style>
+        html, body {
+            height: 100vh;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: lightskyblue;
+        }
+        .pencil {
+            position: relative;
+            width: 50em;
+            height: 3.5em;
+        }
+        .pencil .barrel {
+            position: absolute;
+            left: 4em;
+            width: 40em;
+            box-sizing: border-box;
+            background: green;
+            border-top: 1em solid forestgreen;
+            border-bottom: 1em solid forestgreen;
+            font-family: sans-serif;
+            line-height: 1.5em;
+            padding-right: 2em;
+            text-align: right;
+            text-transform: uppercase;
+            color: silver;
+        }
+        .pencil .taper::before,
+        .pencil .taper::after {
+            position: absolute;
+            left: -4em;
+            content: '';
+            border-style: solid;
+            border-width: calc(3.5em / 2) 4em;
+        }
+        .pencil .taper::before {
+            border-color: transparent burlywood transparent transparent;
+        }
+        .pencil .taper::after {
+            border-color: transparent black transparent transparent;
+            transform: scale(.3);
+        }
+        .pencil .eraser {
+            position: absolute;
+            right: 0;
+            width: 6em;
+            height: 1.5em;
+            background: lightpink;
+            border-top: 1em solid pink;
+            border-bottom: 1em solid lightcoral;
+            border-top-right-radius: .5em;
+            border-bottom-right-radius: .5em;
+        }
+        .pencil .eraser::before {
+            position: absolute;
+            top: -1em;
+            content: '';
+            width: 1.5em;
+            height: 1.5em;
+            background: silver;
+            border-top: 1em solid lightgray;
+            border-bottom: 1em solid gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="pencil">
+        <span class="taper"></span>
+        <span class="barrel">中华 2B 绘图铅笔</span>
+        <span class="eraser"></span>
+    </div>
+
+    <!-- 链接：https://segmentfault.com/a/1190000015153865 -->
+    <!-- 知识点： 
+        1、border 制作三角形
+        2、em 单位的运用
+    -->
+</body>
+</html>
