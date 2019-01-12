@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>044-background-transition-button-effect</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right bottom, dimgray, black);
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            padding-left: 2em;
+            border: 2px solid transparent;
+            border-left-color: silver;
+            transition: .5s;
+            text-align: center;
+            margin: 1em 0;
+        }
+        li span {
+            position: relative;
+            font-family: monospace;
+            font-size: 50px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: white;
+            transition: .5s;
+        }
+        li span::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            z-index: -1;
+            transition: .5s;
+        }
+        li:hover {
+            border-left-color: white;
+        }
+        li:hover span {
+            color: #333;
+            transition-delay: calc(80ms * var(--n));
+        }
+        li:hover span::before {
+            width: 70%;
+            transform: rotate(-25deg);
+            background: white;
+            transition-delay: calc(80ms * var(--n) + 10ms);
+        }
+
+        li span:nth-child(1) { --n: 1; }
+        li span:nth-child(2) { --n: 2; }
+        li span:nth-child(3) { --n: 3; }
+        li span:nth-child(4) { --n: 4; }
+        li span:nth-child(5) { --n: 5; }
+        li span:nth-child(6) { --n: 6; }
+        li span:nth-child(7) { --n: 7; }
+        li span:nth-child(8) { --n: 8; }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <span>h</span>
+                <span>o</span>
+                <span>m</span>
+                <span>e</span>
+            </li>
+            <li>
+                <span>p</span>
+                <span>r</span>
+                <span>o</span>
+                <span>d</span>
+                <span>u</span>
+                <span>c</span>
+                <span>t</span>
+                <span>s</span>
+            </li>
+            <li>
+                <span>s</span>
+                <span>e</span>
+                <span>v</span>
+                <span>i</span>
+                <span>c</span>
+                <span>e</span>
+                <span>s</span>
+            </li>
+            <li>
+                <span>c</span>
+                <span>o</span>
+                <span>n</span>
+                <span>t</span>
+                <span>a</span>
+                <span>c</span>
+                <span>t</span>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 链接：https://segmentfault.com/a/1190000015192218 -->
+</body>
+</html>
